@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from home import *
 # Create your views here.
 
 def register(request):
@@ -13,7 +15,7 @@ def register(request):
         if form.is_valid():
 
             form.save()
-            return render(request, "home/home_page.html")
+            return render(request, "home_page.html")
 
 
     else:
