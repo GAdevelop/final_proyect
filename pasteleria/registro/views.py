@@ -4,22 +4,26 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from home import *
+from . import forms
 # Create your views here.
 
 def register(request):
     
     if request.method == "POST":
 
-        form = UserCreationForm(request.POST)
+        form = forms.UserRegisterForm(request.POST)
 
         if form.is_valid():
 
             form.save()
             return render(request, "home_page.html")
+        
+        else:
+            return render(request, "home_page.html")
 
 
     else:
-        form = UserCreationForm()
+        form = forms.UserRegisterForm()
     
     
     return render(request, "register.html", {"form":form})
