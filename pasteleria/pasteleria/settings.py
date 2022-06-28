@@ -138,5 +138,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGIN_URL = 'Login'
-
-AUTH_USER_MODEL='profiles.CostumUser'

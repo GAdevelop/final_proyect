@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from .forms import UserRegisterForm
 from home import *
 # Create your views here.
 
@@ -10,7 +11,7 @@ def register(request):
     
     if request.method == "POST":
 
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
 
         if form.is_valid():
 
@@ -19,7 +20,7 @@ def register(request):
 
 
     else:
-        form = UserCreationForm()
+        form = UserRegisterForm()
     
     
     return render(request, "register.html", {"form":form})
