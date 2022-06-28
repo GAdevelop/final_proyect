@@ -8,3 +8,7 @@ def products(request):
     data = {'data' : products}
 
     return render(request, 'products.html', data)
+
+def detail(request, id):
+    products=Products.objects.filter(id=id)
+    return render(request, 'detail.html', {'products' : products})

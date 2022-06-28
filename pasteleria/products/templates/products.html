@@ -13,16 +13,17 @@
 {% endblock active %}
 
 {% block body %}
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    {% for product in data %}
+<div class="container py-5">
+  {% for product in data %}
+  <div class="card mb-3">
     <div class="card-body">
-      <h5 class="card-title">{{product.name}}</h5>
-      <p class="card-text">{{product.description}}</p>
+      <h4 class="card-title"><a href="{% url 'detail' product.id %}">{{product.title}}</a></h4>
+      <p class="card-text">{{product.subtitle}}</p>
+      <p>
+<!--<a href="" class="mr-2">{{product.author}}</a> -->        
+      </p>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Price: ${{product.price}}</li>
-    </ul>
-    </div>
-    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
 {% endblock body %}

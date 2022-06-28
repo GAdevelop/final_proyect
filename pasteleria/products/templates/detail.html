@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title%}
+  <title>Detail Page</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    {% for product in products %}
+    <h2 class="my-4">{{product.title}}</h2>
+    <h5>{{product.subtitle}}</h5>
+    <p>
+        <span class="mr-4">{{product.add_time}}</span>
+<!--<a href="">{{product.author}}</a>-->  
+    </p>
+    
+    <div class="col-11">
+        <img src="{{product.image}}" class="img-thumbnail" alt="...">
+        <p class=""></p>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock body %}
