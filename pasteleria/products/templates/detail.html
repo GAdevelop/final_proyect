@@ -7,19 +7,13 @@
 
 {% block body %}
 <div class="container">
-    {% for product in products %}
     <h2 class="my-4">{{product.title}}</h2>
     <h5>{{product.subtitle}}</h5>
     <p>
-        <span class="mr-4">{{product.add_time}}</span>
-<!--<a href="">{{product.author}}</a>-->  
+        <span class="mr-4">By: {{product.author}} | {{product.add_time}}</span>
     </p>
-    
-    <div class="col-11">
-        <img src="{{product.image}}" class="img-thumbnail" alt="...">
-        <p class=""></p>
-    </div>
-    {% endfor %}
+    <br>
+    <p>{{product.body}}</p>
 </div>
 
 

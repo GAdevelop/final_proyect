@@ -1,14 +1,15 @@
 from django.shortcuts import render
 from products.models import Products
+from django.views.generic import ListView, DetailView
+
 
 # Create your views here.
 
-def products(request):
-    products = Products.objects.all()
-    data = {'data' : products}
+class ProductView(ListView):
+    model = Products
+    template_name = 'products.html'
 
-    return render(request, 'products.html', data)
+class PostDetailView(DetailView):
+    model = Products
+    template_name = 'detail.html'
 
-def detail(request, id):
-    products=Products.objects.filter(id=id)
-    return render(request, 'detail.html', {'products' : products})
