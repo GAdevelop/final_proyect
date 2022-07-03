@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.urls import reverse
+
 
 # Create your models here.
 
@@ -15,8 +15,18 @@ class Products(models.Model):
     
 
     def __str__(self):
-        return self.title + '|' + str(self.author)
+        return self.title + ' | ' + str(self.author)
 
-    def get_absolute_url(self):
-        return reverse('post_detail', args=(str(self.pk)))
+
+
+class Comments(models.Model):
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    post = models.ForeignKey(Products, related_name='comments', on_delete=models.CASCADE, null=True)
+    add_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title + ' | ' + str(self.post)
+
 
