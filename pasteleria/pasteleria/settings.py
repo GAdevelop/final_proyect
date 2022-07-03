@@ -137,4 +137,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/assets')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-LOGIN_URL = 'login_out/login'
+LOGIN_URL = '/login_out/login'
+
+LOGOUT_URL = 'home/home'
