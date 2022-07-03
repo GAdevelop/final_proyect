@@ -7,12 +7,17 @@
 
 {% block body %}
 <div class="container py-5">
-  {% for product in object_list %}
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a class="btn btn-dark me-md-2 my-4" href="{% url 'add_product' %}" role="button"> + Add product</a>
+  </div>
+
+  {% for product in products %}
   <div class="card mb-3">
     <div class="card-body">
-      <h4 class="card-title"><a href="{% url 'post_detail' product.pk %}">{{product.title}}</a></h4>
+      <h4 class="card-title"><a href="{% url 'post_detail' product.id %}">{{product.title}}</a></h4>
       <p class="card-text">{{product.subtitle}}</p>
-      <p><a href="" class="mr-2">{{product.author}}</a></p>
+      <p class="mr-2">Author: {{product.author}}</p>
     </div>
   </div>
   {% endfor %}
