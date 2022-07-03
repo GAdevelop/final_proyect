@@ -3,7 +3,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from home import *
 # Create your views here.
 
 def login_request(request):
@@ -19,13 +18,13 @@ def login_request(request):
 
             if user is not None:
                 login(request, user)
-                return render(request , "home_page.html", {"mensaje": f'Bienvenido {username}'})
+                return render(request , "", {"mensaje": f'Bienvenido {username}'})
             
             else:
-                return render(request , "home_page.html", {"mensaje": "Error, datos incorrectos."})
+                return render(request , "", {"mensaje": "Error, datos incorrectos."})
         else:
             #form = AuthenticationForm(initial)
-            return render(request, "login.html")
+            return render(request, "")
 
 
     form = AuthenticationForm()
