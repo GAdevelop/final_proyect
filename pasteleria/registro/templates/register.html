@@ -4,11 +4,11 @@
 {% block body %}
 
 <h1>Register</h1>
-<form action="Register" method="POST">
+<form action="" method="POST">
     {% csrf_token %}
 
 {{ form.as_p }}
-<button type="">Enter</button>
+<button type="submit">Enter</button>
 </form>
 
 {% endblock %}
