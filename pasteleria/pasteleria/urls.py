@@ -24,9 +24,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
+    path('profile/', include('profiles.urls')),
     path('products/', include('products.urls')),
     path('registro/', include("registro.urls")),
-    path('login_out/', include("login_out.urls"))
+    path('login_out/', include("login_out.urls")),
+    
 
 
     
