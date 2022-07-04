@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title%}
@@ -6,15 +6,45 @@
 {% endblock %}
 
 {% block body %}
+
 <div class="container">
-    <h2 class="my-4">{{product.title}}</h2>
-    <h5>{{product.subtitle}}</h5>
-    <p>
-        <span class="mr-4">By: {{product.author}} | {{product.add_time}}</span>
-    </p>
-    <br>
-    <p>{{product.body}}</p>
+  {% for product in products %}
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn-dark me-md-2 my-4" href="{% url 'edit_product' product.id %}" role="button">Edit</a>
+    <a class="btn btn-dark me-md-2 my-4" href="{% url 'delete_product' product.id %}" role="button">Delete</a>
+  </div>
+
+  <h2 class="my-4">{{product.title}}</h2>
+  <h5>{{product.subtitle}}</h5>   
+  <p>
+    <span class="mr-4">By: {{product.author}} | {{product.add_time}}</span>
+  </p>
+  <br>
+  <img src="{{ product.image.url }}" alt="">
+  <p>{{product.body}}</p>
+  
+  <h2>Comments</h2><a class="btn btn-dark me-md-2 my-4" href="{% url 'add_comment' product.id %}" role="button">+ Add a Comment</a>
+
+  {% if not product.comments.all %}
+    <p>Be the first to comment!</p>
+
+  {% else %}
+    {% for comment in product.comments.all %}
+      <article>
+        <li>
+          <strong> {{comment.title}} on {{comment.add_time}}</strong><br>
+        {{comment.body}}
+        </li>
+      </article>
+  
+    {% endfor %}
+  {% endif %}
+
+
+
+  <a class="btn btn-dark my-4" href="{% url 'products' %}">  ← Back</a>
+
+  {% endfor %}
 </div>
-
-
 {% endblock body %}

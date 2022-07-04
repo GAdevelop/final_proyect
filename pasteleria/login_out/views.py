@@ -3,7 +3,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from home import *
 # Create your views here.
 
 def login_request(request):
@@ -27,7 +26,7 @@ def login_request(request):
                 return render(request , "login.html",)
         else:
             #form = AuthenticationForm(initial)
-            return render(request, "login.html")
+            return render(request, "")
 
 
     form = AuthenticationForm()

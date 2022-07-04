@@ -1,9 +1,14 @@
 from django.urls import path
-#from . import views
-from .views import ProductView, PostDetailView
+from . import views
+
 
 urlpatterns = [
-    path('', ProductView.as_view(), name='products'),
-    path('post_detail/<int:pk>', PostDetailView.as_view(), name = 'post_detail')
+    path('', views.productList, name='products'),
+    path('post/<int:id>', views.detail, name='post_detail'),
+    path('addProduct', views.addProduct, name='add_product'),
+    path('editProduct/<int:id>', views.editProduct, name='edit_product'),
+    path('deleteProduct/<int:id>', views.deleteProduct, name='delete_product'),
+    path('post/<int:id>/addComment', views.addComment, name='add_comment'),
+
 
 ]
