@@ -19,11 +19,12 @@ def login_request(request):
 
             if user is not None:
                 login(request, user)
-                return render(request , "home_page.html",)
+                #return HttpResponse("bienvenido {user} ")
+                return render(request , "home_page.html", {"mensaje": f"Bienvenido {user}"})
             
             else:
                 #return HttpResponse("Usuario incorrecto")
-                return render(request , "home_page.html",)
+                return render(request , "login.html",)
         else:
             #form = AuthenticationForm(initial)
             return render(request, "login.html")
