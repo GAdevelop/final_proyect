@@ -2,22 +2,22 @@
 {% load static %}
 
 {% block title%}
-  <title>Profile Page</title>
+    <title>Profile Page</title>
 {% endblock %}
 
 {% block body %}
 <div class="container">
-    {% for users in users %}
-    <h2 class="my-4">Welcome {{users.username}}!!!</h2>
+    
+    <h2 class="my-4">Welcome {{user.username}}!!!</h2>
     <ul>
         <li>
-            <p>Username: {{users.username}}</p>
+            <p>Username: {{user.username}}</p>
         </li>
         <li>
-            <p>Email: {{users.email}}</p>
+            <p>Email: {{user.email}}</p>
         </li>
     </ul>
-   
+
     <h4>In this website you are able to:</h4>
     <ul>
         <li>
@@ -39,7 +39,7 @@
     </ul>
     
     
-{% endfor %}
+
 </div>
 
 {% endblock  %}
