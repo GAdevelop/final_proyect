@@ -32,10 +32,12 @@
   {% else %}
     {% for comment in product.comments.all %}
       <article>
-        <li>
-          <strong> {{comment.title}} on {{comment.add_time}}</strong><br>
-        {{comment.body}}
-        </li>
+        <ul>
+          <li>
+              <strong>{{comment.author}} | {{comment.title}} on {{comment.add_time}}</strong><br>
+              {{comment.body}}
+          </li>
+        </ul>
       </article>
   
     {% endfor %}

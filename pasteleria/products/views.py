@@ -15,10 +15,15 @@ def productList(request):
 
     return render(request, 'products.html', {'products': products})
 
+
+
 def detail(request, id):
     products = Products.objects.filter(id=id)
 
     return render(request, 'detail.html', {'products': products})
+
+
+
 
 @login_required
 def addProduct(request):
@@ -37,6 +42,8 @@ def addProduct(request):
     return render(request, 'addProduct.html')
 
 
+
+
 @login_required
 def editProduct(request, id):
     product = get_object_or_404(Products, id=id)
@@ -53,12 +60,17 @@ def editProduct(request, id):
         my_form = ProductForm(instance=product)
     return render(request, 'editProduct.html', {'my_form': my_form})
 
+
+
 @login_required
 def deleteProduct(request, id):
     product = Products.objects.filter(id=id)
     product.delete()
 
     return redirect('products')
+
+
+
 
 @login_required
 def addComment(request, id):
